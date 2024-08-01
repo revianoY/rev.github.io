@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sadddd</title>
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #ffcccc; /* background warna pink romantis */
+}
+
+.romantic-background {
+    padding: 20px;
+    background-image: url('romantic-bg.jpg'); /* Ganti dengan URL background romantis */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    text-align: center;
+    color: #333; /* Warna teks */
+    position: relative; /* Memungkinkan penempatan absolut */
+}
+
+.typing-text {
+    position: relative; /* Memungkinkan penempatan absolut */
+}
+
+.love-emoji {
+    font-size: 48px;
+    position: absolute;
+    top: 140%;
+    left: 41%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Emoji disembunyikan secara default */
+    animation: heartbeat 1s infinite; /* Animasi detak jantung */
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.buttons {
+    margin-top: 20px;
+    display: none; /* Tombol disembunyikan secara default */
+}
+
+.buttons.show {
+    display: block; /* Menampilkan tombol setelah animasi teks selesai */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Warna background tombol */
+    color: white; /* Warna teks tombol */
+    outline: none;
+}
+
+button:hover {
+    background-color: #45a049; /* Warna hover tombol */
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="romantic-background">
+        <div class="content">
+            <div class="love-emoji">&#x1F496;</div>
+            <div class="typing-text">
+                <h1 id="typing-text"></h1>
+            </div>
+            <div class="buttons" id="buttons">
+                <button onclick="mauuClicked()">No</button>
+                <button onclick="mauuClicked()">Yes
+                </button> <!-- Sama seperti klik Mau! -->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+const texts = ["would you be my girlfriend?"]; // Teks yang akan ditampilkan (bisa ditambahkan lebih banyak)
+let count = 0; // Menghitung indeks teks
+let index = 0; // Menghitung indeks huruf
+
+function typeText() {
+    if (index < texts[count].length) {
+        document.getElementById('typing-text').textContent += texts[count].charAt(index);
+        index++;
+        setTimeout(typeText, 50); // Kecepatan animasi teks (ms)
+    } else {
+        // Animasi teks selesai, maka tampilkan emoji love
+        document.querySelector('.love-emoji').style.opacity = '1';
+        // Tampilkan tombol-tombol
+        document.querySelector('.buttons').classList.add('show');
+        index = 0;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(typeText, 1000); // Waktu tunggu sebelum animasi teks dimulai (ms)
+});
+
+function mauuClicked() {
+    // Arahkan ke chat WhatsApp (ganti nomor sesuai kebutuhan)
+    window.open('https://wa.me/+6283856169085?text=hehe');
+}
+</script>
+</body>
+  </html>
+  
